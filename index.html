@@ -74,8 +74,8 @@
   <h1>Flip the Coin</h1>
   <h4>Press the coin or the button to flip the coin</h4>
 
-  <img id="coin" src="file:///C:/Users/akans/OneDrive/Desktop/Taskdev/heads.svg" alt="Coin" />
-  <img class="shadow"src="file:///C:/Users/akans/OneDrive/Desktop/Taskdev/shadow.svg" alt="shadow" />
+  <img id="coin" src="heads.svg" alt="Coin" />
+  <img class="shadow"src="shadow.svg" alt="shadow" />
   <h2 id="result">Heads</h2>
   <button id="flipBtn">Random</button>
 
@@ -89,7 +89,7 @@
 
       setTimeout(() => {
         const isHeads = Math.random() < 0.5;
-        coin.src = isHeads ? "file:///C:/Users/akans/OneDrive/Desktop/Taskdev/heads.svg": "file:///C:/Users/akans/OneDrive/Desktop/Taskdev/tails.svg";
+        coin.src = isHeads ? "heads.svg": "tails.svg";
         result.textContent = isHeads ? "Heads" : "Tails";
         coin.classList.remove("flip");
       }, 300);
