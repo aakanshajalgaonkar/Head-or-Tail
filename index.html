@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flip the Coin </title>
+ 
+  <style>
+    body {
+      background-color: #404A65;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ECEDF0;
+      font-size: 48px;
+      text-shadow: -2px -2px 0 #111113,
+                    2px -2px 0 #111113,
+                   -2px  2px 0 #111113,
+                    2px  2px 0 #111113;
+    }
+
+    h4 {
+      text-align: center;
+      color: #ECEDF0;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ECEDF0;
+      margin-top: 24px;
+      font-size: 32px;
+    }
+
+    img {
+      display: block;
+      
+      margin: 20px auto;
+      width: 150px;
+      transition: transform 0.5s ease;
+      margin-top: 60px;
+    }
+
+    img.flip {
+      transform: rotateY(180deg);
+    }
+
+    button {
+      background-color: #1F6FB0;
+      color: #ECEDF0;
+      font-size: 20px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      transition: transform 0.3s ease;
+      margin-top: 50px;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+    .shadow {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Flip the Coin</h1>
+  <h4>Press the coin or the button to flip the coin</h4>
+
+  <img id="coin" src="file:///C:/Users/akans/OneDrive/Desktop/Taskdev/heads.svg" alt="Coin" />
+  <img class="shadow"src="file:///C:/Users/akans/OneDrive/Desktop/Taskdev/shadow.svg" alt="shadow" />
+  <h2 id="result">Heads</h2>
+  <button id="flipBtn">Random</button>
+
+  <script>
+    const coin = document.getElementById("coin");
+    const result = document.getElementById("result");
+    const button = document.getElementById("flipBtn");
+
+    button.addEventListener("click", () => {
+      coin.classList.add("flip");
+
+      setTimeout(() => {
+        const isHeads = Math.random() < 0.5;
+        coin.src = isHeads ? "file:///C:/Users/akans/OneDrive/Desktop/Taskdev/heads.svg": "file:///C:/Users/akans/OneDrive/Desktop/Taskdev/tails.svg";
+        result.textContent = isHeads ? "Heads" : "Tails";
+        coin.classList.remove("flip");
+      }, 300);
+    });
+
+    coin.addEventListener("click", () => {
+      button.click(); // Flip when coin is clicked
+    });
+  </script>
+
+</body>
+</html>
